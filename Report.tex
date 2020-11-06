@@ -1,0 +1,17 @@
+% example1.tex
+\documentclass[12pt, a4paper]{report}
+
+% === Package start ===
+\usepackage{fontspec} % 加這個就可以設定字體
+\usepackage{xeCJK} % 讓中英文字體分開設置
+% === Package end ===
+
+\setCJKmainfont{標楷體}
+\XeTeXlinebreaklocale "zh" % Defines how to break lines for multilingual text
+\XeTeXlinebreakskip = 0pt plus 1pt % Inter-character linebreak stretch
+
+\begin{document}
+English Test. 插入中文字，看看如何？插入中文字，看看如何？插入中文字，看看如何？ This is a simple template for a
+XeLaTeX document using the report class, with the fontspec package to
+easily select fonts. 看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯。
+\end{document}
