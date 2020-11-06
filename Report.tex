@@ -1,17 +1,96 @@
-% example1.tex
 \documentclass[12pt, a4paper]{report}
 
 % === Package start ===
 \usepackage{fontspec} % 加這個就可以設定字體
 \usepackage{xeCJK} % 讓中英文字體分開設置
+\usepackage{graphicx} % 引入圖片
+\usepackage{indentfirst}
 % === Package end ===
 
 \setCJKmainfont{標楷體}
 \XeTeXlinebreaklocale "zh" % Defines how to break lines for multilingual text
 \XeTeXlinebreakskip = 0pt plus 1pt % Inter-character linebreak stretch
+\graphicspath{{images/}} 
+\setlength{\parindent}{2em}
 
+% === Content start from here ===
 \begin{document}
-English Test. 插入中文字，看看如何？插入中文字，看看如何？插入中文字，看看如何？ This is a simple template for a
-XeLaTeX document using the report class, with the fontspec package to
-easily select fonts. 看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯，看來還不錯。
+
+\begin{titlepage}
+    \linespread{2} %兩倍行距
+    \centering
+    \Large 國立台灣海洋大學資訊工程學系專題報告\\
+    \LARGE dARt \\
+    \ \\
+    \includegraphics[width=3cm]{NTOU-school-badge}\\
+    \ \\
+    \linespread{1}
+    \begin{table}[h]
+        \large
+        \centering
+        \begin{tabular}{lll}
+            00XXXXXX CSE 5A 李　萱 \\
+            00XXXXXX CSE 4A 羅　捷 \\
+            00XXXXXX CSE 4A 洪晟洋 \\
+            00XXXXXX CSE 4A 魏資碩 \\
+        \end{tabular}
+    \end{table}
+
+    \large 報告編號: NTOUCSE 110學年度-指導老師編號-競賽組第 X 組 \\
+    \large 指導教授：張欽圳老師\ \\
+    \vspace{3cm}
+    \large 中華民國 110年 XX 月 XX 日
+
+\end{titlepage}
+
+\tableofcontents % Compile twice to correctly show
+
+% === Chapter ===
+\chapter{介紹}
+\section{研究目的與動機}
+
+    研究目的
+
+\section{系統簡介（遊戲說明、流程圖、多人運作）}
+
+    系統簡介（遊戲說明、流程圖、多人運作）
+
+\section{系統架構}
+
+    系統架構
+
+% === Chapter ===
+\chapter{前端架構}
+\section{技術介紹}
+
+    技術介紹
+
+\section{技術說明與實作}
+\subsection{OpenGL 物件位置與實景貼合}
+
+    OpenGL 物件位置與實景貼合
+
+\subsection{ARCore 姿態估計、Sensor 校正}
+
+    ARCore 姿態估計、Sensor 校正
+
+% === Chapter ===
+\chapter{後端架構}
+\section{技術介紹}
+
+    技術介紹
+
+\section{技術說明與實作}
+\subsection{技術說明}
+
+    技術說明
+
+\subsection{網路端實作}
+
+    網路端實作
+
+\subsection{神經網路手勢辨識}
+
+    神經網路手勢辨識
+
 \end{document}
