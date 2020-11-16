@@ -5,6 +5,9 @@
 \usepackage{xeCJK} % 讓中英文字體分開設置
 \usepackage{graphicx} % 引入圖片
 \usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage{listings} % for code listing
+\usepackage{xcolor} % for code listing color settings
 % === Package end ===
 
 \setCJKmainfont{標楷體}
@@ -12,6 +15,37 @@
 \XeTeXlinebreakskip = 0pt plus 1pt % Inter-character linebreak stretch
 \graphicspath{{images/}} 
 \setlength{\parindent}{2em}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black, % Make TOC remain black
+    urlcolor=blue,
+}
+
+% code listing settings
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=none,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
 
 % === Content start from here ===
 \begin{document}
