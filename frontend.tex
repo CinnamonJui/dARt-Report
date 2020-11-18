@@ -160,3 +160,36 @@ float[] projMatrix = new float[16];
 camera.getProjectionMatrix(projMatrix,
 /*offset = */ 0, /*near clipping plane = */ 0.01f, /*far clipping plane = */ 15.0f);
 \end{lstlisting}
+
+
+\subsection{遊戲設計}
+
+\subsubsection{飛鏢動畫}
+
+飛鏢動畫是依照射出的初速以及手機的初始位置製作的物件，可以依照飛行時間計算飛鏢當下的鋼體參數。
+
+\begin{lstlisting}[language=Java, caption=Animate]
+public Animate(float speed, Pose p) {
+    //construct direction speed starting position
+    this.speed = speed;
+    this.direction = new float[]{0, 0, -1f * speed};
+    setStartingCameraPose(p);
+}
+\end{lstlisting}
+
+飛鏢的運動分為移動和轉動，轉動的部分簡化成了讓飛鏢指向飛行方向，移動依照物理定義，後端回傳運動速度大小，複合手機的初始位得到初速度，依照基礎物理定律，計算及時飛鰾的位置。
+
+\begin{lstlisting}[language=Java, caption=calculatePose]
+public Pose calculatePose(float del) {
+    float[] translation = {direction[0] * del + gravity[0] * del * del, direction[1] * del + gravity[1] * del * del, direction[2] * del + gravity[2] * del * del};
+    float[] newSpeed = {direction[0] + gravity[0] * del, direction[1] + gravity[1] * del, direction[2] + gravity[2] * del};
+    float[] rotation = getRotation(getVector(direction, newSpeed), getTheta(direction, newSpeed));
+    AnimatePose = new Pose(translation, rotation);
+    return StartingPose.compose(AnimatePose);
+}
+\end{lstlisting}
+
+\subsubsection{分數計算}
+
+分數計算是擷取飛鏢上靶後的位置，依照飛鏢相較於靶心的相對位置，計算與靶心的距離計算是否有再加倍或三倍區域，再用三角函數計算分數，將每次的分數顯示在螢幕上。
+
