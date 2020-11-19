@@ -161,6 +161,18 @@ camera.getProjectionMatrix(projMatrix,
 /*offset = */ 0, /*near clipping plane = */ 0.01f, /*far clipping plane = */ 15.0f);
 \end{lstlisting}
 
+\subsubsection{OpenGL ES on Android}
+
+Android SDK 包含了讓開發人員可以快速使用 OpenGL ES 的 API，舉體使用步驟為：
+
+\begin{enumerate}
+    \item 在 Manifest.xml 宣告使用 OpenGL ES
+    \item 新增 android.opengl.GLSurfaceView 於畫面中（將該實例稱為 V）
+    \item 繼承 android.opengl.GLSurfaceView，並將 V 指派給該 class。（可選，需要管理該 View 的 Touch event 才需要）
+    \item 繼承 GLSurfaceView.Render 並實作（將該實例稱為 R）
+    \item 將該 V 的 Render 設定為 R
+\end{enumerate}
+
 
 \subsection{遊戲設計}
 
