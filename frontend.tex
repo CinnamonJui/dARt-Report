@@ -1,7 +1,7 @@
 \chapter{前端架構}
 \section{技術介紹}
 
-前端－在此為 Android 手機－負責了 AR 場景的繪製。這部分藉助了由 Google 所提供的 \href{https://developers.google.com/ar}{ARCore} ，對圖 \ref{fig:標定物} 進行姿態估計與使用 OpenGL ES 繪製 3D 物件於場景中。
+前端－在此為 Android 手機－負責了 AR 場景的繪製。這部分藉助了由 Google 所提供的 \href{https://developers.google.com/ar}{ARCore}\footnote{\url{https://developers.google.com/ar}}，對圖 \ref{fig:標定物} 進行姿態估計與使用 OpenGL ES 繪製 3D 物件於場景中。
 
 \begin{figure}[h]
     \centering
@@ -14,15 +14,15 @@
 \subsection{ARCore 姿態估計}
 \subsubsection{安裝}
 
-欲使用 ARCore 必須先安裝 Google 所提供的應用程式，該應用程式可以在 \href{https://play.google.com/store/apps/details?id=com.google.ar.core}{Google Play} \footnote{\url{https://play.google.com/store/apps/details?id=com.google.ar.core}} 上找到。須注意並非所有 Android 裝置都支援這個應用程式，支援的裝置列表可以在\href{https://developers.google.com/ar/discover/supported-devices#google_play_device}{此處}查詢。
+欲使用 ARCore 必須先安裝 Google 所提供的應用程式，該應用程式可以在 \href{https://play.google.com/store/apps/details?id=com.google.ar.core}{Google Play}\footnote{\url{https://play.google.com/store/apps/details?id=com.google.ar.core}} 上找到。須注意並非所有 Android 裝置都支援這個應用程式，支援的裝置列表可以在\href{https://developers.google.com/ar/discover/supported-devices#google_play_device}{此處}\footnote{\url{https://developers.google.com/ar/discover/supported-devices\#google\_play\_device}}查詢。
 
 \subsubsection{準備、初始化}
 
-在安裝後需要撰寫一系列繁雜且固定的初始化流程，才能在執行期安全地取得讓我們能夠使用 ARCore 的物件－com.google.ar.core.Session－這一系列的繁雜任務不多做贅述，可以於\href{https://developers.google.com/ar/develop/java/enable-arcore}{此處}查看。
+在安裝後需要撰寫一系列繁雜且固定的初始化流程，才能在執行期安全地取得讓我們能夠使用 ARCore 的物件－com.google.ar.core.Session－這一系列的繁雜任務不多做贅述，可以於\href{https://developers.google.com/ar/develop/java/enable-arcore}{此處}\footnote{\url{https://developers.google.com/ar/develop/java/enable-arcore}}查看。
 
 \subsubsection{標定物設定}
 
-為了使標定物能夠被 ARCore 偵測，使用了 \href{https://developers.google.com/ar/develop/java/augmented-images}{Augmented Images} 相關的 API。需要先將影像加入 \href{https://developers.google.com/ar/reference/java/com/google/ar/core/AugmentedImageDatabase}{AugmentedImageDatabase}，之後將該物件交給 \href{https://developers.google.com/ar/reference/java/com/google/ar/core/Session}{Session}。具體有二種做法。
+為了使標定物能夠被 ARCore 偵測，使用了 \href{https://developers.google.com/ar/develop/java/augmented-images}{Augmented Images}\footnote{\url{https://developers.google.com/ar/develop/java/augmented-images}} 相關的 API。需要先將影像加入 \href{https://developers.google.com/ar/reference/java/com/google/ar/core/AugmentedImageDatabase}{AugmentedImageDatabase}\footnote{\url{https://developers.google.com/ar/reference/java/com/google/ar/core/AugmentedImageDatabase}}，之後將該物件交給 \href{https://developers.google.com/ar/reference/java/com/google/ar/core/Session}{Session}\footnote{\url{https://developers.google.com/ar/reference/java/com/google/ar/core/Session}}。具體有二種做法。
 
 於執行時將圖片動態載入 AugmentedImageDatabase：
 
@@ -41,7 +41,7 @@ config.setAugmentedImageDatabase(augmentedImageDatabase);
 session.configure(config);
 \end{lstlisting}
 
-或是預先使用 \href{https://developers.google.com/ar/develop/java/augmented-images/arcoreimg}{arcoreimg tool} 將圖片（可多張）打包成 AugmentedImageDatabase 可讀取的 *.imgdb 檔案
+或是預先使用 \href{https://developers.google.com/ar/develop/java/augmented-images/arcoreimg}{arcoreimg tool}\footnote{\url{https://developers.google.com/ar/develop/java/augmented-images/arcoreimg}} 將圖片（可多張）打包成 AugmentedImageDatabase 可讀取的 *.imgdb 檔案
 
 \begin{lstlisting}[language=bash, caption=使用 arcoreimg tool 將圖片打包]
 arcoreimg.exe build-db --input_image_list_path=/path/to/image_list_file.txt --output_db_path=/path/to/myimages.imgdb
