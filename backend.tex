@@ -1,20 +1,32 @@
 \chapter{後端架構}
 \section{技術介紹}
 
-    技術介紹
-
-\section{技術說明與實作}
 後端 - 以下列出主要兩大功能，並簡述其技術:
 \begin{itemize}
 \item 由手機端接收到的影像，計算使用者手勢發射飛標之速度。
 手機與伺服器之間使用UDP Socket 溝通將手機後相機影像至伺服器，交由神經網路模組( SRCNN + LSTM )並搭載GForce 1080ti GPU加速計算出結果，再回傳至手機。
 \item 多人遊玩 - 玩家之間的遊戲資料傳遞。
-若使用者有中靶，傳遞飛鏢的Pose(Translation & Quaternion)參數至伺服器，在將這些資料傳遞至其他使用者讓其他使用者能看到彼此發射的飛鏢。
+若使用者有中靶，傳遞飛鏢的Pose(Translation \& Quaternion)參數至伺服器，在將這些資料傳遞至其他使用者讓其他使用者能看到彼此發射的飛鏢。
 \end{itemize}
 
 伺服器的使用Linux Server 18.04，並使用tmux，方便組態多種操作環境以及背景Session執行。
 
+
+\section{技術說明與實作}
+
 % 補充1. 神經網路training的環境 2. 神經網路在伺服器上的環境
+
+
+\begin{table}[]
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+    & 訓練環境                 & 伺服器環境                        \\\hline
+GPU & RTX2070                  & GTX1080ti                                     \\\hline
+CPU & Intel Core (TM) i7-8750H & Intel(R) Xeon(R) CPU E5-2620 v4  2.10@GHz     \\\hline
+RAM & 16GB                     & 264GB                                   
+\\\hline
+\end{tabular}
+\end{table}
 
 \subsection{網路端實作}
 \subsubsection{手機後相機影像的擷取}
