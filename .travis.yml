@@ -1,0 +1,18 @@
+language: minimal
+services: docker
+branches:
+  only:
+    - main
+
+script:
+  - docker run --mount src=$TRAVIS_BUILD_DIR,target=/usr/src/tex,type=bind dxjoke/tectonic-docker
+    /bin/sh -c "tectonic Report.tex"
+
+deploy:
+  provider: release
+  api-key: $GITHUB_API_KEY
+  file: Report.pdf
+  skip_cleanup: true
+  on:
+    branch: main
+    tags: true
