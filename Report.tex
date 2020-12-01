@@ -14,7 +14,7 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 \usepackage{float}
-\setCJKmainfont{標楷體}
+\setCJKmainfont[Path=fonts/]{DFKai-SB.ttf}
 \XeTeXlinebreaklocale "zh" % Defines how to break lines for multilingual text
 \XeTeXlinebreakskip = 0pt plus 1pt % Inter-character linebreak stretch
 \graphicspath{{images/}, {images/NN_img/}}
@@ -105,6 +105,10 @@
 
 
 \tableofcontents % Compile twice to correctly show
+\listoffigures
+\listoftables
+\lstlistoflistings
+
 
 % === Chapter ===
 \input{introduce.tex}

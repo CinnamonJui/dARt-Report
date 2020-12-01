@@ -1,9 +1,6 @@
-/*.pdf
-/*.log
-/*.aux
-/*.synctex*
-/*.toc
-/*.out
-/107ForgetCatcher_report_1217v2.tex
+/Report.*
+!/Report.tex
+/107ForgetCatcher_report_1217v2.*
 /*.fdb_latexmk
 /*.fls
+
