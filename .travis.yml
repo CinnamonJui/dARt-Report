@@ -14,4 +14,4 @@ deploy:
   file: Report.pdf
   skip_cleanup: true
   on:
-    branch: main
+    tags: true
