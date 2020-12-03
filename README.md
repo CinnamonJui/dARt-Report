@@ -12,3 +12,7 @@
 ## LaTeX in VSCode Environment Setup Reference
 
 [LaTeX Workshop – 在VSCode中編輯及編譯LaTeX](https://shaynechen.gitlab.io/vscode-latex/)
+
+## Poster preview
+
+![A1 Poster](./poster/A1%20Poster.png)
