@@ -1,0 +1,4 @@
+digraph G {
+    Hello -> Dot;
+    砰砰->是天才;
+}
