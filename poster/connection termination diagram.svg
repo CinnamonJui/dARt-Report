@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1126 1056" style="enable-background:new 0 0 1126 1056;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#F8CECC;stroke:#B85450;}
+	.st2{fill:#DAE8FC;stroke:#6C8EBF;}
+	.st3{fill:none;stroke:#0000FF;stroke-miterlimit:10;}
+	.st4{fill:#0000FF;stroke:#0000FF;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st6{stroke:#000000;stroke-miterlimit:10;}
+	.st7{fill:#FFFFFF;stroke:#000000;}
+	.st8{font-family:'Helvetica';}
+	.st9{font-size:12px;}
+	.st10{fill:#0000FF;}
+	.st11{fill:none;stroke:#FF3333;stroke-miterlimit:10;}
+	.st12{fill:#FF3333;stroke:#FF3333;stroke-miterlimit:10;}
+	.st13{fill:#FF3333;}
+	.st14{fill:#F5F5F5;stroke:#666666;}
+	.st15{font-size:21px;}
+	.st16{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
+	.st17{enable-background:new    ;}
+	.st18{fill:none;stroke:#0000FF;stroke-miterlimit:10;stroke-dasharray:3,3;}
+	.st19{font-family:'AdobeMingStd-Light-B5pc-H';}
+	.st20{fill:none;stroke:#000000;}
+	.st21{font-family:'DFNHei-XB-HK-BF';}
+	.st22{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;stroke-dasharray:2,8;}
+	.st23{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+	.st24{font-family:'ArialMT';}
+	.st25{font-size:10px;}
+</style>
+<path class="st0" d="z"/>
+<g>
+	<rect x="276.5" y="45.5" pointer-events="all" class="st1" width="105" height="340"/>
+	<rect x="1.5" y="45.5" pointer-events="all" class="st2" width="105" height="340"/>
+	<path pointer-events="stroke" class="st3" d="M86.5,195.5h15h191.1"/>
+	<path pointer-events="all" class="st4" d="M297.9,195.5l-7,3.5l1.8-3.5l-1.8-3.5L297.9,195.5z"/>
+	<path pointer-events="stroke" class="st5" d="M329,85.5v33.6"/>
+	<path pointer-events="all" class="st6" d="M329,124.4l-3.5-7l3.5,1.8l3.5-1.8L329,124.4z"/>
+	<rect x="299" y="55.5" pointer-events="all" class="st7" width="60" height="30"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 312.1592 74.5)" class="st8 st9">socket</text>
+	</g>
+	<path pointer-events="stroke" class="st5" d="M329,155.5v20v-10v13.6"/>
+	<path pointer-events="all" class="st6" d="M329,184.4l-3.5-7l3.5,1.8l3.5-1.8L329,184.4z"/>
+	<rect x="299" y="125.5" pointer-events="all" class="st7" width="60" height="30"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 318.1563 144.5)" class="st8 st9">bind</text>
+	</g>
+	<path pointer-events="stroke" class="st5" d="M329,275.5v33.6"/>
+	<path pointer-events="all" class="st6" d="M329,314.4l-3.5-7l3.5,1.8l3.5-1.8L329,314.4z"/>
+	<rect x="299" y="245.5" pointer-events="all" class="st7" width="60" height="30"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 311.4854 264.5)" class="st8 st9">sendto</text>
+	</g>
+	<path pointer-events="stroke" class="st5" d="M329,215.5v20v-10v13.6"/>
+	<path pointer-events="all" class="st6" d="M329,244.4l-3.5-7l3.5,1.8l3.5-1.8L329,244.4z"/>
+	<rect x="299" y="185.5" pointer-events="all" class="st7" width="60" height="30"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 306.165 204.5)" class="st8 st9">recvfrom</text>
+	</g>
+	<rect x="299" y="315.5" pointer-events="all" class="st7" width="60" height="30"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 315.4932 334.5)" class="st8 st9">close</text>
+	</g>
+	<rect x="109" y="175.5" pointer-events="all" class="st0" width="160" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 116.8027 189.5)" class="st10 st8 st9">1. camera image streaming</text>
+	</g>
+	<rect x="144" y="235.5" pointer-events="all" class="st0" width="90" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 154.4756 249.5)" class="st10 st8 st9">2. dart speed</text>
+	</g>
+	<path pointer-events="stroke" class="st11" d="M86.5,206h175h31.1"/>
+	<path pointer-events="all" class="st12" d="M297.9,206l-7,3.5l1.8-3.5l-1.8-3.5L297.9,206z"/>
+	<rect x="124" y="205.5" pointer-events="all" class="st0" width="130" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 134.3252 219.5)" class="st13 st8 st9">3. client 1&apos;s dart pose</text>
+	</g>
+	<path pointer-events="stroke" class="st3" d="M299.5,255.5H92.9"/>
+	<path pointer-events="all" class="st4" d="M87.6,255.5l7-3.5l-1.8,3.5l1.8,3.5L87.6,255.5z"/>
+	<rect x="9" y="15.5" pointer-events="all" class="st0" width="90" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 34.1563 29.5)" class="st8 st9">Client 1</text>
+	</g>
+	<rect x="289" y="15.5" pointer-events="all" class="st0" width="80" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 311.8281 29.5)" class="st8 st9">Server</text>
+	</g>
+	<rect x="761.5" y="15.5" pointer-events="all" class="st14" width="360" height="60"/>
+	<rect x="744.5" y="0.5" pointer-events="all" class="st14" width="377" height="75"/>
+	<path pointer-events="stroke" class="st3" d="M761.5,23h33.6"/>
+	<path pointer-events="all" class="st4" d="M800.4,23l-7,3.5l1.8-3.5l-1.8-3.5L800.4,23z"/>
+	<rect x="801.5" y="15.5" pointer-events="all" class="st0" width="230" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 811.4385 29.5)" class="st8 st9">The flow of detect shooting dart gestu...</text>
+	</g>
+	<path pointer-events="stroke" class="st11" d="M761.5,45.5h33.6"/>
+	<path pointer-events="all" class="st12" d="M800.4,45.5l-7,3.5l1.8-3.5l-1.8-3.5L800.4,45.5z"/>
+	<rect x="801.5" y="38" pointer-events="all" class="st0" width="290" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 811.4385 51.5)" class="st8 st9">The flow of broadcast dart pose (multiplayer mod...</text>
+	</g>
+	<rect x="26.5" y="125.5" pointer-events="all" class="st7" width="60" height="30"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 39.1592 144.5)" class="st8 st9">socket</text>
+	</g>
+	<rect x="26.5" y="185.5" pointer-events="all" class="st7" width="60" height="30"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 38.4854 204.5)" class="st8 st9">sendto</text>
+	</g>
+	<path pointer-events="stroke" class="st5" d="M56.5,155.5v20v-10v13.6"/>
+	<path pointer-events="all" class="st6" d="M56.5,184.4l-3.5-7l3.5,1.8l3.5-1.8L56.5,184.4z"/>
+	<rect x="26.5" y="245.5" pointer-events="all" class="st7" width="60" height="30"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 33.165 264.5)" class="st8 st9">recvfrom</text>
+	</g>
+	<rect x="26.5" y="305.5" pointer-events="all" class="st7" width="60" height="30"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 42.4932 324.5)" class="st8 st9">close</text>
+	</g>
+	<path pointer-events="stroke" class="st5" d="M56.5,215.5v20v-10v13.6"/>
+	<path pointer-events="all" class="st6" d="M56.5,244.4l-3.5-7l3.5,1.8l3.5-1.8L56.5,244.4z"/>
+	<path pointer-events="stroke" class="st5" d="M56.5,275.5v20v-10v13.6"/>
+	<path pointer-events="all" class="st6" d="M56.5,304.4l-3.5-7l3.5,1.8l3.5-1.8L56.5,304.4z"/>
+	<rect x="571.5" y="45.5" pointer-events="all" class="st2" width="105" height="340"/>
+	<rect x="591.5" y="125.5" pointer-events="all" class="st7" width="60" height="30"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 604.1592 144.5)" class="st8 st9">socket</text>
+	</g>
+	<rect x="591.5" y="185.5" pointer-events="all" class="st7" width="60" height="30"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 603.4854 204.5)" class="st8 st9">sendto</text>
+	</g>
+	<path pointer-events="stroke" class="st5" d="M621.5,155.5v20v-10v13.6"/>
+	<path pointer-events="all" class="st6" d="M621.5,184.4l-3.5-7l3.5,1.8l3.5-1.8L621.5,184.4z"/>
+	<rect x="591.5" y="245.5" pointer-events="all" class="st7" width="60" height="30"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 598.165 264.5)" class="st8 st9">recvfrom</text>
+	</g>
+	<rect x="591.5" y="305.5" pointer-events="all" class="st7" width="60" height="30"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 607.4932 324.5)" class="st8 st9">close</text>
+	</g>
+	<path pointer-events="stroke" class="st5" d="M621.5,215.5v20v-10v13.6"/>
+	<path pointer-events="all" class="st6" d="M621.5,244.4l-3.5-7l3.5,1.8l3.5-1.8L621.5,244.4z"/>
+	<path pointer-events="stroke" class="st5" d="M621.5,275.5v20v-10v13.6"/>
+	<path pointer-events="all" class="st6" d="M621.5,304.4l-3.5-7l3.5,1.8l3.5-1.8L621.5,304.4z"/>
+	<rect x="579" y="15.5" pointer-events="all" class="st0" width="90" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 604.1563 29.5)" class="st8 st9">Client 2</text>
+	</g>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 264.6553 689.5)" class="st8 st15">Client</text>
+	</g>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 396.0742 689.5)" class="st8 st15">Server</text>
+	</g>
+	<path pointer-events="all" class="st16" d="M291,705.5v320"/>
+	<path pointer-events="stroke" class="st5" d="M290.4,742l129.8,42.6"/>
+	<path pointer-events="all" class="st6" d="M425.4,785.3l-7.4,2.4l2.3-3.2l-1.2-3.7L425.4,785.3z"/>
+	<path pointer-events="all" class="st16" d="M426.5,705.5v320"/>
+	<path pointer-events="stroke" class="st5" d="M424.7,816.2l-128,39.8"/>
+	<path pointer-events="all" class="st6" d="M291.5,856.7l6.4-4.4l-1.2,3.7l2.2,3.2L291.5,856.7z"/>
+	<path pointer-events="stroke" class="st5" d="M291,885.5l129.8,38.6"/>
+	<path pointer-events="all" class="st6" d="M426,924.8l-7.4,2.5l2.2-3.2l-1.3-3.7L426,924.8z"/>
+	<g transform="translate(-0.5 -0.5)rotate(10 185.9919674785474 723.8016552320412)">
+		<text transform="matrix(0.99 0.1414 -0.1414 0.99 310.0886 706.1645)" class="st17"><tspan x="0" y="0" class="st8 st9">Sending the shoot </tspan><tspan x="10.4" y="14.4" class="st8 st9">gesture image</tspan></text>
+	</g>
+	<g transform="translate(-0.5 -0.5)rotate(355 252.4378422757618 821.2244712828078)">
+		<text transform="matrix(0.978 -0.2088 0.2088 0.978 322.0104 848.9688)" class="st8 st9">Dart Velocity</text>
+	</g>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 496.3449 788.866)" class="st17"><tspan x="0" y="0" class="st8 st9">Process Delay</tspan><tspan x="-9.2" y="14.4" class="st8 st9">(Decode Image + </tspan><tspan x="-10" y="28.8" class="st8 st9">Neuron Detection)</tspan></text>
+	</g>
+	<g transform="translate(-0.5 -0.5)rotate(10 261.3145683369937 877.2593890012283)">
+		<text transform="matrix(0.9936 0.1131 -0.1131 0.9936 331.2832 881.5364)" class="st8 st9">Dart Pose</text>
+	</g>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 239.3803 747.5)" class="st10 st8 st9">T1</text>
+	</g>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 460.498 789.5)" class="st10 st8 st9">T2</text>
+	</g>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 460.498 817.5)" class="st10 st8 st9">T3</text>
+	</g>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 242.3803 869.5)" class="st10 st8 st9">T4</text>
+	</g>
+	<path pointer-events="stroke" class="st11" d="M359,260.5h226.1"/>
+	<path pointer-events="all" class="st12" d="M590.4,260.5l-7,3.5l1.8-3.5l-1.8-3.5L590.4,260.5z"/>
+	<rect x="411.5" y="265.5" pointer-events="all" class="st0" width="130" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 421.3252 279.5)" class="st13 st8 st9">4. client 1&apos;s dart pose</text>
+	</g>
+	<path pointer-events="stroke" class="st18" d="M591.5,200.5H365.4"/>
+	<path pointer-events="all" class="st4" d="M360.1,200.5l7-3.5l-1.8,3.5l1.8,3.5L360.1,200.5z"/>
+	<rect x="406.5" y="175.5" pointer-events="all" class="st0" width="150" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 415.4736 189.5)" class="st10 st8 st9">camera image streaming</text>
+	</g>
+	<rect x="191.5" y="425.5" pointer-events="all" class="st0" width="270" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 245.1191 439.5)" class="st17"><tspan x="0" y="0" class="st19 st9">多人流程圖</tspan><tspan x="60" y="0" class="st8 st9">(</tspan><tspan x="64" y="0" class="st19 st9">以</tspan><tspan x="76" y="0" class="st8 st9">Client 1</tspan><tspan x="116.7" y="0" class="st19 st9">發射飛標之情境所示</tspan><tspan x="224.7" y="0" class="st8 st9">)</tspan></text>
+	</g>
+	<rect x="15.1" y="910.8" pointer-events="all" class="st20" width="250" height="80"/>
+	<rect x="17.1" y="912.8" pointer-events="all" class="st20" width="246" height="76"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 45.5154 940.5091)" class="st17"><tspan x="0" y="0" class="st8 st9">Process Delay: T3 - T2</tspan><tspan x="0" y="14.4" class="st8 st9">Network Delay: (T2-T1) + (T4-T3)</tspan><tspan x="0" y="28.8" class="st8 st9">Response Delay: T4 - T1</tspan></text>
+	</g>
+	<rect x="184" y="1035.5" pointer-events="all" class="st0" width="200" height="20"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 213.6631 1049.5)" class="st21 st9">解構響應延遲(Response Delay)</text>
+	</g>
+	<path pointer-events="stroke" class="st22" d="M291,785.5h120.5"/>
+	<path pointer-events="stroke" class="st22" d="M291.5,864.8l133.4,1.4"/>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 239.3803 789.5)" class="st10 st8 st9">T2</text>
+	</g>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 460.498 869.5)" class="st10 st8 st9">T4</text>
+	</g>
+	<g transform="translate(-0.5 -0.5)">
+		<rect x="148.1" y="749.5" class="st0" width="98.7" height="30.5"/>
+		<text transform="matrix(1 0 0 1 158.4774 759.8159)" class="st17"><tspan x="0" y="0" class="st8 st9">Network Delay</tspan><tspan x="18.3" y="14.4" class="st8 st9">(Uplink)</tspan></text>
+	</g>
+	<g transform="translate(-0.5 -0.5)">
+		<text transform="matrix(1 0 0 1 496.014 839.3658)" class="st17"><tspan x="0" y="0" class="st8 st9">Network Delay</tspan><tspan x="10.7" y="14.4" class="st8 st9">(Downlink)</tspan></text>
+	</g>
+	<path pointer-events="all" class="st23" d="M456.5,785.5h-20 M456.5,815.5h-20 M446.5,785.5v30"/>
+	<path pointer-events="all" class="st23" d="M456.5,818.8h-20 M456.5,868.8h-20 M446.5,818.8v50"/>
+	<path pointer-events="all" class="st23" d="M283.5,740.5h-20 M283.5,788h-20 M273.5,740.5V788"/>
+</g>
+<a xlink:href="https://desk.draw.io/support/solutions/articles/16000042487"  transform="translate(0,-5)">
+	<text transform="matrix(1 0 0 1 481.6006 1056.5)" class="st24 st25">Viewer does not support full SVG 1.1</text>
+</a>
+<path class="st0" d="z"/>
+</svg>
