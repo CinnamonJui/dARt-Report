@@ -1,20 +1,12 @@
 \chapter{後端架構}
 \section{技術介紹}
+首先使用超解析化神經網路技術將超低解析度照片做高解析化，再利 用Darknet平台所編寫特殊設計的CNN抓取手部位置。將抓取的機率分布，再使用LSTM神經網路辨識手勢，通過函數轉換與計算後，回傳發射參數（速度）。
 
-後端 - 以下列出主要兩大功能，並簡述其技術:
-\begin{itemize}
-\item 由手機端接收到的影像，計算使用者手勢發射飛標之速度。
-手機與伺服器之間使用UDP Socket 溝通將手機後相機影像至伺服器，交由神經網路模組( SRCNN + LSTM )並搭載GForce 1080ti GPU加速計算出結果，再回傳至手機。
-\item 多人遊玩 - 玩家之間的遊戲資料傳遞。
-若使用者有中靶，傳遞飛鏢的Pose(Translation \& Quaternion)參數至伺服器，在將這些資料傳遞至其他使用者讓其他使用者能看到彼此發射的飛鏢。
-\end{itemize}
-
-伺服器的使用Linux Server 18.04，並使用tmux，方便組態多種操作環境以及背景Session執行。
+由於server必須要確保每秒傳輸照片數，所以傳輸至後端的畫質非常低，導致偵測的準確度較低。所以首先需要克服低解析度問題，讓準確度變高。
+為了讓使用者有良好的遊戲體驗，在使用者在射飛鏢時，需要馬上就能得到回應，並將飛鏢發射出去。因此需要壓縮CNN，讓計算上能更加流暢，使回傳速度更快(response time降低)。除此之外，原本darknet設計是需要將收到的照片寫入硬碟再讀取，速度極慢，需要修改內程式使darknet可以直接寫入記憶體，並直接偵測，回傳結果。
 
 
 \section{技術說明與實作}
-
-% 補充1. 神經網路training的環境 2. 神經網路在伺服器上的環境
 
 
 \begin{table}[]
@@ -28,79 +20,7 @@ RAM & 16GB                     & 264GB
 \end{tabular}
 \end{table}
 
-\subsection{網路端實作}
-\subsubsection{手機後相機影像的擷取}
-\subsubsection{說明}
-1. 在onDrawFrame()裡，在camera preview image render到 GL surface之後，將GL的surfaceView儲存到buffer，轉換為Bitmap。
 
-2. 每個pixel需儲存R,G,B,A這四個資料，因此 buffer allocate memory　＝　surfaceView’s width * height * 4 bytes。
-
-3. 在create完buffer後，需呼叫rewind()，將buffer的position設為0，將讀取的資料位置從0開始。\href{可於此處}{https://stevenitlife.blogspot.com/2015/01/java-nio-socket-bytebuffer-method.html} 了解相關buffer使用方法。
-
-\begin{lstlisting}[language=Java, caption=手機後相機影像擷取]
-// Create buffer: allocate memory( 1 pixel = 4 bytes(R, G, B, A))
-ByteBuffer bf = ByteBuffer.allocateDirect(surfaceView.getWidth() * surfaceView.getHeight() * 4);
-// Using nativeOrder to store in buffer (other option: Big Endian / Little Endian)
-bf.order(ByteOrder.nativeOrder());
-
-// Camera view to buffer
-GLES10.glReadPixels(0, 0, surfaceView.getWidth(), surfaceView.getHeight(),
-        GLES30.GL_RGBA, GLES30.GL_UNSIGNED_BYTE, bf);
-// Create bitmap
-Bitmap bmp = Bitmap.createBitmap(surfaceView.getWidth(), surfaceView.getHeight(), Bitmap.Config.ARGB_8888);
-bf.rewind();
-// Copy buffer data to bitmap
-bmp.copyPixelsFromBuffer(bf);
-
-conn.mBackgroundHandler.post(conn.new SendImageData(bmp));
-\end{lstlisting}
-
-\subsubsection{傳輸影像至伺服器端}
-1. Android的操作，只要超過5秒沒回應(或OnCreate()超過10秒)，程式就會被當作無回應，而系統會丟出ANR(Application No Response Exception)。所以，比較耗時費工的動作，都應該考慮用背景作業的方式來完成(另外這些background thread不能包含UI的處理)，此處傳輸即用Background Thread做處理。
-
-2. 使用UDP socket傳輸，和TCP不同的是，每次UDP送出的封包都需指定送出的對象(connectionless protocol)，不須事先建立連線，且沒有重送封包的機制，因此我們在此專題需要即時上的應用時，選用此技術。
-
-3. 在傳輸Bitmap時，需要轉為byteArray，另外，將Bitmap resize 原大小的1/100，目的想將資料傳輸量盡量變小，降低延遲。
-
-\begin{lstlisting}[language=Java, caption=傳輸影像至伺服器端]
-public class SendImageData implements Runnable {
-        private Bitmap mBitMap;
-        private Bitmap resizeBitMap;
-        private byte[] data = null;
-
-        public SendImageData(Bitmap bmp) {
-            mBitMap = bmp;
-            resizeBitMap = Bitmap.createScaledBitmap(mBitMap, mBitMap.getWidth() / 10, mBitMap.getHeight() / 10, true);
-        }
-
-        @Override
-        public void run() {
-            try {
-                if (serverAddr == null) {
-                    serverAddr = InetAddress.getByName("140.121.196.201");
-                }
-                if (socket == null) {
-                    socket = new DatagramSocket();
-                }
-
-                ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-                resizeBitMap.compress(Bitmap.CompressFormat.JPEG, 80, byteStream);
-                data = byteStream.toByteArray();
-                try {
-                    DatagramPacket packet = new DatagramPacket(data, data.length, serverAddr, 5000);
-                    Log.i("data length", String.valueOf(data.length));
-                    socket.send(packet);
-                } catch (Exception e) {
-                    System.out.println("Error 1:" + e.toString());
-                }
-            } catch (Exception e) {
-                System.out.println("Error 2:" + e.toString());
-                socket.close();
-            }
-            mBitMap.recycle();
-        }
-    }
-\end{lstlisting}
 \subsection{後端神經網路系統架構圖}
 
 主要分為四部份，分別為SRCNN、手部物件辨識、LSTM以及特殊函數轉換.。首先利用SRCNN將手機傳來的照片做高解析化，使手部物件辨識模型辨識率提高。在將手部辨識結果的機率分布傳至LSTM做發射手勢辨識。最後通過函數轉換後回傳發射參數，流程圖請見Figure 3.1。
