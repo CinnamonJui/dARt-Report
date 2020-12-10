@@ -1,9 +1,10 @@
 \chapter{前後端傳輸}
 \section{技術介紹}
-前後端的傳輸主要使用UDP Socket來做傳輸，主要功能如下
+前後端的傳輸主要使用UDP Socket來做傳輸，主要功能如下:
 \begin{itemize}
 \item 將手機後相機影像傳送至伺服器，交由神經網路模組辨識手勢。
-\item 多人遊玩 - 玩家之間的遊戲資料傳遞。 若使用者有中靶，傳遞飛鏢的Pose(Translation \& Quaternion)參數至伺服器，在將這些資料傳遞至其他使用者讓其他使用者能看到彼此發射的飛鏢。
+\item 多人遊玩 - 玩家之間的遊戲資料傳遞。 
+若使用者有中靶，傳遞飛鏢的Pose(Translation \& Quaternion)參數至伺服器，在將這些資料傳遞至其他使用者讓其他使用者能看到彼此發射的飛鏢。
 \end{itemize}
 \subsection{傳輸流程說明}
 \begin{figure}[h]
@@ -12,16 +13,16 @@
     \caption{流程圖}
     \label{fig:flow}
 \end{figure}
-\subsubsection{說明}
 1. 手機後相機影像擷取，傳輸至伺服器。
 2. 伺服器解壓影像，將影像傳送至神經網路模組。
 3. 神經網路模組辨識飛鏢速度 。
 4. 飛鏢速度由伺服器端傳送至手機端。
-5. 若玩家中靶之位置(Pose)傳送至伺服器。
+5. 若玩家中靶，則將飛鏢之位置(Pose)傳送至伺服器。
 6. 伺服器傳送中靶位置給其他使用者。
-\subsection{網路端實作}
+
+影像以及遊戲資料個別使用一個Socket，目的是將資料分流，另外也能夠在伺服器端做multi-process的處裡，加快處裡速度。
+\subsection{手機端實作}
 \subsubsection{手機後相機影像的擷取}
-\subsubsection{說明}
 1. 在onDrawFrame()裡，在camera preview image render到 GL surface之後，將GL的surfaceView儲存到buffer，轉換為Bitmap。
 
 2. 每個pixel需儲存R,G,B,A這四個資料，因此 buffer allocate memory　＝　surfaceView’s width * height * 4 bytes。
@@ -92,3 +93,35 @@ public class SendImageData implements Runnable {
         }
     }
 \end{lstlisting}
+\subsection{系統延遲實驗}
+\subsubsection{實驗說明}
+為達良好之遊戲體驗，故衡量玩家從傳輸影像到拿到回傳參數的時間。而為將各個變因獨立衡量，將分析延遲如下圖所示:
+
+\begin{figure}[h]
+    \centering	
+    \includegraphics[]{latency.png}
+    \caption{解構響應延遲}
+    \label{fig:decomposition of response delay}
+\end{figure}
+
+\begin{itemize}
+\item Response Delay:
+總延遲，玩家由送出手機後相機影像，至拿到飛鏢初速之時間。根據上圖所示，計算方式為T4 - T1。
+\item Process Delay:
+伺服器端處裡時間，包含影像解碼、神經網路辨識，到送出飛鏢速度的這段時間。根據上圖所示，計算方式為T3 - T2。
+\item Network Delay:
+網路延遲時間，分為uplink、downlink delay。根據上圖所示，計算方式為(T2-T1) + (T4 - T3)。
+\end{itemize}
+\subsubsection{系統延遲實驗結果\&分析}
+Network Delay主要以ping server來分析，而經過約15次的測試下，平均Network Delay介於40 - 60 ms之間
+Process Delay 則以伺服器接收到影像的時間搓記，與送出封包的時間搓記，來計算其時間差，實驗兩次，每次計算約80 - 100張影像，平均值為7.02 ms 以及7.72ms。
+
+\begin{figure}[h]
+    \centering	
+    \includegraphics[]{process_delay.png}
+    \caption{實驗一之結果}
+    \label{fig:Process delay bar chart}
+\end{figure}
+
+結果顯示，之Response Delay介於47.02 - 60.72 ms之間，故在發射飛標手勢時，不會感到明顯延遲。
+
