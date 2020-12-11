@@ -9,16 +9,18 @@
 \subsection{傳輸流程說明}
 \begin{figure}[h]
     \centering	
-    \includegraphics[]{flow.png}
+    \includegraphics[width=\testwidth]{flow.png}
     \caption{流程圖}
     \label{fig:flow}
 \end{figure}
-1. 手機後相機影像擷取，傳輸至伺服器。
-2. 伺服器解壓影像，將影像傳送至神經網路模組。
-3. 神經網路模組辨識飛鏢速度 。
-4. 飛鏢速度由伺服器端傳送至手機端。
-5. 若玩家中靶，則將飛鏢之位置(Pose)傳送至伺服器。
-6. 伺服器傳送中靶位置給其他使用者。
+\begin{enumerate}
+\item 手機後相機影像擷取，傳輸至伺服器。
+\item 伺服器解壓影像，將影像傳送至神經網路模組。
+\item 神經網路模組辨識飛鏢速度 。
+\item 飛鏢速度由伺服器端傳送至手機端。
+\item 若玩家中靶，則將飛鏢之位置(Pose)傳送至伺服器。
+\item 伺服器傳送中靶位置給其他使用者。
+\end{enumerate}
 
 影像以及遊戲資料個別使用一個Socket，目的是將資料分流，另外也能夠在伺服器端做multi-process的處裡，加快處裡速度。
 \subsection{手機端實作}
@@ -99,7 +101,7 @@ public class SendImageData implements Runnable {
 
 \begin{figure}[h]
     \centering	
-    \includegraphics[]{latency.png}
+    \includegraphics[width=\testwidth]{latency.png}
     \caption{解構響應延遲}
     \label{fig:decomposition of response delay}
 \end{figure}
@@ -113,15 +115,16 @@ public class SendImageData implements Runnable {
 網路延遲時間，分為uplink、downlink delay。根據上圖所示，計算方式為(T2-T1) + (T4 - T3)。
 \end{itemize}
 \subsubsection{系統延遲實驗結果\&分析}
-Network Delay主要以ping server來分析，而經過約15次的測試下，平均Network Delay介於40 - 60 ms之間
-Process Delay 則以伺服器接收到影像的時間搓記，與送出封包的時間搓記，來計算其時間差，實驗兩次，每次計算約80 - 100張影像，平均值為7.02 ms 以及7.72ms。
+Network Delay主要以ping server來分析，而經過約15次的測試下，平均Network Delay介於40 - 60 ms之間。
+
+Process Delay 則以伺服器接收到影像的時間搓記，與送出封包的時間搓記，來計算其時間差，實驗兩次，每次計算約80 - 100張影像，平均值為7.02 ms 以及7.72ms，Process Delay結果如下圖所示。
 
 \begin{figure}[h]
     \centering	
-    \includegraphics[]{process_delay.png}
+    \includegraphics[width=\testwidth]{process_delay.png}
     \caption{實驗一之結果}
     \label{fig:Process delay bar chart}
 \end{figure}
 
-結果顯示，之Response Delay介於47.02 - 60.72 ms之間，故在發射飛標手勢時，不會感到明顯延遲。
+結果顯示，Response Delay介於47.02 - 60.72 ms之間，故在發射飛鏢手勢時，不會感到明顯延遲。
 

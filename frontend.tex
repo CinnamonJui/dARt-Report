@@ -177,13 +177,13 @@ Android SDK 包含了讓開發人員可以快速使用 OpenGL ES 的 API，舉�
 \subsection{遊戲設計}
 
 \subsubsection{AR物件}
-模擬飛鏢遊戲需先建構標靶與飛鏢，標靶由 ARcore 取得 model Matrix 定位於相機中的地球圖片上，鏡頭前飛鏢繪製於鏡頭右下固定位置，此為遊戲初始狀態。
+模擬飛鏢遊戲需先建構鏢靶與飛鏢，鏢靶由 ARcore 取得 model Matrix 定位於相機中的地球圖片上，鏡頭前飛鏢繪製於鏡頭右下固定位置，此為遊戲初始狀態。
 
 後端會傳送出飛鏢射出的速度，當作飛鏢射出的條件，前端取得初速後，運算飛鏢物理運動，並依照時間繪製飛鏢動畫，此時鏡頭前置飛鏢不會繪製於螢幕上，同時運用線性代數計算飛鏢是否上靶，如果有上靶則繪製上靶飛鏢於中靶位置，於特定秒數後消失。
 
 遊戲需要物件:
 \begin{enumerate}
-    \item 標靶
+    \item 鏢靶
     \item 鏡頭前置飛鏢
     \item 飛行中的飛鏢
     \item 上靶飛鏢
@@ -204,7 +204,7 @@ public Animate(float speed, Pose p) {
 }
 \end{lstlisting}
 
-飛鏢的運動分為移動和轉動，轉動的部分簡化成了讓飛鏢指向飛行方向，移動依照物理定義，後端回傳運動速度大小，複合手機的初始位得到初速度，依照基礎物理定律，計算及時飛鰾的位置。
+飛鏢的運動分為移動和轉動，轉動的部分簡化成了讓飛鏢指向飛行方向，移動依照物理定義，後端回傳運動速度大小，複合手機的初始位得到初速度，依照基礎物理定律，計算及時飛鏢的位置。
 
 \begin{lstlisting}[language=Java, caption=calculatePose]
 public Pose calculatePose(float del) {
