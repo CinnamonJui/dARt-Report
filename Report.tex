@@ -9,11 +9,12 @@
 \usepackage{listings} % for code listing
 \usepackage{xcolor} % for code listing color settings
 \usepackage{url}
+\usepackage{float}
+\usepackage{datetime}
 % === Package end ===
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
-\usepackage{float}
 \setCJKmainfont[Path=fonts/]{DFKai-SB.ttf}
 \XeTeXlinebreaklocale "zh" % Defines how to break lines for multilingual text
 \XeTeXlinebreakskip = 0pt plus 1pt % Inter-character linebreak stretch
@@ -61,7 +62,7 @@
     \LARGE dARt \\
     \ \\
     \includegraphics[width=3cm]{NTOU-school-badge}\\
-   
+
     \ \\
     \linespread{1}
     \begin{table}[h]
@@ -78,7 +79,7 @@
     \large \hspace{-1cm} 報告編號: NTOUCSE 110學年度-指導老師編號-競賽組第 1 組 \\
     \large 指導教授：張欽圳老師\ \\
     \vspace{3cm}
-    \large 中華民國 109 年 XX 月 XX 日
+    \large 中華民國 {\the\numexpr\year-1911} 年 \the\month 月 \the\day 日
 
 \end{titlepage}
 
@@ -96,13 +97,6 @@
 4  & 魏資碩 & 後端神經網路訓練、設計及優化 &  25\%     \\\hline     
 \end{tabular}
 \end{table}
-
-
-%==================
-% 專案管理系統截圖
-%==================
-
-
 
 \tableofcontents % Compile twice to correctly show
 \listoffigures
